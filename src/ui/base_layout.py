@@ -78,7 +78,7 @@ def style_base_layout():
                 
             h3, h4, p, label {
                 font-family: 'Outfit', sans-serif !important;  
-              
+                color: black !important;
             }
 
             input, textarea {
