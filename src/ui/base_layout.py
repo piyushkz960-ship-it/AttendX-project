@@ -115,6 +115,21 @@ def style_base_layout():
 
             button:hover{
                 transform :scale(1.05)}
+
+            [data-testid="stDialog"] h2 {
+                color: white !important;
+                font-family: 'Poppins', sans-serif !important;
+            }
+
+            [data-testid="stDialog"] p {
+                color: white !important;
+                font-family: 'Outfit', sans-serif !important;
+            }
+
+            [data-testid="stDialog"] label {
+                color: white !important;
+                font-family: 'Outfit', sans-serif !important;
+            }
         </style>  
 
                 """
