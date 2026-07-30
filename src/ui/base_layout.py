@@ -76,14 +76,17 @@ def style_base_layout():
                 color: black !important;
             }
                 
-            h3, h4, p, label, span, input, textarea {
+            h3, h4, p, label {
                 font-family: 'Outfit', sans-serif !important;  
                 color: black !important;
+            }
 
+            input, textarea {
+                font-family: 'Outfit', sans-serif !important;
             }
                 
 
-            button{
+            .stButton > button{
                 border-radius: 1.5rem !important;
                 background-color: #5865F2 !important;
                 color: white !important;
@@ -92,7 +95,7 @@ def style_base_layout():
                 transition: transform 0.25s ease-in-out !important;
                 }
 
-            button[kind="secondary"]{
+            .stButton > button[kind="secondary"]{
                 border-radius: 1.5rem !important;
                 background-color: #EB459E !important;
                 color: white !important;
@@ -101,7 +104,7 @@ def style_base_layout():
                 transition: transform 0.25s ease-in-out !important;
                 }
 
-            button[kind="tertiary"]{
+            .stButton > button[kind="tertiary"]{
                 border-radius: 1.5rem !important;
                 background-color: black !important;
                 color: white !important;
