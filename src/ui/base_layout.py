@@ -76,7 +76,7 @@ def style_base_layout():
                 color: black !important;
             }
                 
-            h3, h4, p,label, span, input, textarea {
+            h3, h4, p, {
                 font-family: 'Outfit', sans-serif !important;  
                 color: black !important;
 
