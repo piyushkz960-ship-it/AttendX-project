@@ -150,8 +150,6 @@ This project helped me gain practical experience in:
 
 GitHub: https://github.com/piyushkz960-ship-it
 
-LinkedIn: *(Add your LinkedIn profile)*
-
 ---
 
 ## ⭐ Support
