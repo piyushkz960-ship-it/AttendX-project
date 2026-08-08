@@ -158,12 +158,12 @@ def style_base_layout():
                 }
 
             .stButton > button[kind="secondary"]{
-                background-color: var(--ax-secondary) !important;
+                background-color: var(--ax-primary) !important;
                 color: white !important;
                 }
 
             .stButton > button[kind="secondary"]:hover{
-                background-color: var(--ax-secondary-dark) !important;
+                background-color: var(--ax-primary-dark) !important;
                 }
 
             .stButton > button[kind="tertiary"]{
@@ -196,11 +196,36 @@ def style_base_layout():
                 border-radius: var(--ax-radius-sm) !important;
                 border: 1.5px solid var(--ax-border) !important;
                 background-color: var(--ax-surface) !important;
+                color: var(--ax-ink) !important;
+            }
+
+            .stTextInput input::placeholder, .stTextArea textarea::placeholder {
+                color: var(--ax-muted) !important;
+                opacity: 1 !important;
             }
 
             .stTextInput input:focus, .stTextArea textarea:focus {
                 border-color: var(--ax-primary) !important;
                 box-shadow: 0 0 0 3px var(--ax-primary-light) !important;
+            }
+
+            .stSelectbox div[data-baseweb="select"] > div,
+            .stSelectbox div[data-baseweb="select"] span {
+                color: var(--ax-ink) !important;
+            }
+
+            /* The options popover renders in a portal at the body root */
+            div[data-baseweb="popover"] li,
+            div[data-baseweb="popover"] li *,
+            div[data-baseweb="menu"] li,
+            div[data-baseweb="menu"] li * {
+                background-color: var(--ax-surface) !important;
+                color: var(--ax-ink) !important;
+            }
+
+            div[data-baseweb="popover"] li:hover,
+            div[data-baseweb="menu"] li:hover {
+                background-color: var(--ax-primary-light) !important;
             }
 
             [data-testid="stCameraInput"], [data-testid="stFileUploader"], [data-testid="stAudioInput"] {
@@ -242,6 +267,7 @@ def style_base_layout():
             /* ---------- Dialogs / Modals ---------- */
 
             [data-testid="stDialog"] > div {
+                background-color: var(--ax-surface) !important;
                 border-radius: var(--ax-radius-lg) !important;
                 box-shadow: var(--ax-shadow-xl) !important;
             }
