@@ -118,8 +118,12 @@ def style_base_layout():
                 color: var(--ax-ink) !important;
             }
 
-            h3, h4, p, label, span, div {
+            h3, h4, p, label {
                 font-family: 'Outfit', sans-serif !important;
+            }
+
+            [data-testid="stIconMaterial"] {
+                font-family: 'Material Symbols Rounded' !important;
             }
 
             h3, h4 {
@@ -181,6 +185,11 @@ def style_base_layout():
                 box-shadow: none !important;
                 }
 
+            .stButton > button p {
+                color: inherit !important;
+                font-weight: 600 !important;
+                }
+
             /* ---------- Inputs ---------- */
 
             .stTextInput input, .stTextArea textarea, .stSelectbox div[data-baseweb="select"] > div {
@@ -220,6 +229,10 @@ def style_base_layout():
 
             [data-testid="stAlert"] {
                 border-radius: var(--ax-radius-sm) !important;
+            }
+
+            [data-testid="stAlert"] p {
+                color: inherit !important;
             }
 
             [data-testid="stImage"] img {
@@ -264,6 +277,126 @@ def style_base_layout():
             .ax-brand h2 {
                 color: var(--ax-primary) !important;
                 margin-bottom: 0 !important;
+            }
+
+            /* ---------- Card containers (st.container(key="ax_card_...")) ---------- */
+
+            div[class*="st-key-ax_card"] {
+                background-color: var(--ax-surface) !important;
+                border: 1px solid var(--ax-border) !important;
+                border-radius: var(--ax-radius-md) !important;
+                padding: 1.5rem 1.75rem !important;
+                box-shadow: var(--ax-shadow) !important;
+                margin-bottom: 1rem !important;
+            }
+
+            /* ---------- Segmented tab bar (st.container(key="ax_tabbar")) ---------- */
+
+            div[class*="st-key-ax_tabbar"] {
+                background-color: var(--ax-primary-light) !important;
+                border-radius: var(--ax-radius-md) !important;
+                padding: 6px !important;
+                margin-bottom: 1.25rem !important;
+            }
+
+            div[class*="st-key-ax_tabbar"] .stButton > button[kind="tertiary"] {
+                background-color: transparent !important;
+                border: none !important;
+                color: var(--ax-muted) !important;
+            }
+
+            div[class*="st-key-ax_tabbar"] .stButton > button[kind="tertiary"]:hover {
+                background-color: rgba(255, 255, 255, 0.7) !important;
+                color: var(--ax-primary) !important;
+            }
+
+            div[class*="st-key-ax_tabbar"] .stButton > button[kind="primary"] {
+                box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25) !important;
+            }
+
+            /* ---------- Avatar badge ---------- */
+
+            .ax-avatar {
+                width: 44px;
+                height: 44px;
+                min-width: 44px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, var(--ax-primary), var(--ax-primary-dark));
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 700;
+                font-size: 1rem;
+            }
+
+            /* ---------- Stat cards ---------- */
+
+            .ax-stat-card {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                background-color: var(--ax-surface);
+                border: 1px solid var(--ax-border);
+                border-radius: var(--ax-radius-md);
+                box-shadow: var(--ax-shadow);
+                padding: 1.1rem 1.25rem;
+                margin-bottom: 1rem;
+            }
+
+            .ax-stat-icon {
+                width: 48px;
+                height: 48px;
+                min-width: 48px;
+                border-radius: 12px;
+                background-color: var(--ax-primary-light);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.4rem;
+            }
+
+            .ax-stat-value {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 700;
+                font-size: 1.5rem;
+                color: var(--ax-ink);
+                line-height: 1.1;
+            }
+
+            .ax-stat-label {
+                font-size: 0.82rem;
+                color: var(--ax-muted);
+                margin-top: 2px;
+            }
+
+            /* ---------- Empty states ---------- */
+
+            .ax-empty-state {
+                text-align: center;
+                padding: 1.5rem 1rem;
+            }
+
+            .ax-empty-icon {
+                width: 64px;
+                height: 64px;
+                border-radius: 50%;
+                background-color: var(--ax-primary-light);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.8rem;
+                margin: 0 auto 1rem auto;
+            }
+
+            .ax-empty-state h3 {
+                margin-bottom: 0.4rem !important;
+            }
+
+            .ax-empty-state p {
+                max-width: 420px;
+                margin: 0 auto !important;
             }
         </style>
 

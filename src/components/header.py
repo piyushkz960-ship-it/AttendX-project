@@ -26,3 +26,18 @@ def header_dashboard():
         </div>
 
                 """, unsafe_allow_html=True)
+
+
+def user_badge(name, role):
+    initials = "".join(part[0] for part in name.split()[:2]).upper() or "?"
+
+    st.markdown(f"""
+        <div style="display:flex; align-items:center; justify-content:flex-end; gap:12px;">
+            <div style="text-align:right;">
+                <div style="font-family:'Poppins', sans-serif; font-weight:700; color:var(--ax-ink); font-size:1.05rem; line-height:1.25;">{name}</div>
+                <div style="color:var(--ax-muted); font-size:.75rem; text-transform:uppercase; letter-spacing:.06em;">{role}</div>
+            </div>
+            <div class="ax-avatar">{initials}</div>
+        </div>
+
+                """, unsafe_allow_html=True)
