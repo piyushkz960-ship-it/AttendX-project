@@ -188,6 +188,11 @@ def style_base_layout():
             .stButton > button p {
                 color: inherit !important;
                 font-weight: 600 !important;
+                white-space: nowrap !important;
+                }
+
+            .stButton > button kbd {
+                display: none !important;
                 }
 
             /* ---------- Inputs ---------- */
@@ -423,6 +428,60 @@ def style_base_layout():
             .ax-empty-state p {
                 max-width: 420px;
                 margin: 0 auto !important;
+            }
+
+            /* ---------- Responsive ---------- */
+
+            .block-container {
+                padding-left: clamp(1rem, 4vw, 3rem) !important;
+                padding-right: clamp(1rem, 4vw, 3rem) !important;
+            }
+
+            @media (max-width: 900px) {
+                h1 {
+                    font-size: 2.4rem !important;
+                }
+
+                h2 {
+                    font-size: 1.5rem !important;
+                }
+
+                div[class*="st-key-ax_card"] {
+                    padding: 1.1rem 1.25rem !important;
+                }
+
+                .ax-stat-card {
+                    padding: 0.9rem 1rem !important;
+                }
+            }
+
+            @media (max-width: 600px) {
+                .block-container {
+                    padding-top: 1.1rem !important;
+                }
+
+                h1 {
+                    font-size: 1.9rem !important;
+                }
+
+                h2 {
+                    font-size: 1.3rem !important;
+                }
+
+                .stApp div[data-testid="stColumn"] {
+                    padding: 1.85rem 1.5rem !important;
+                }
+
+                div[class*="st-key-ax_tabbar"] .stButton > button {
+                    padding: 8px 14px !important;
+                }
+
+                .ax-avatar {
+                    width: 38px !important;
+                    height: 38px !important;
+                    min-width: 38px !important;
+                    font-size: 0.85rem !important;
+                }
             }
         </style>
 
