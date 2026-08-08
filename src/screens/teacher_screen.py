@@ -45,7 +45,7 @@ def teacher_dashboard():
         header_dashboard()
     with c2:
         st.markdown(
-            f"<h3 style='color:black;'>Welcome, {teacher_data['name']}</h3>",
+            f"<h3>Welcome, {teacher_data['name']}</h3>",
             unsafe_allow_html=True
         )
         if st.button(
@@ -103,7 +103,7 @@ def teacher_tab_take_attendance():
     teacher_id = st.session_state.teacher_data['teacher_id']
 
     st.markdown(
-        "<h2 style='color:black;'>Take AI Attendance</h2>",
+        "<h2>Take AI Attendance</h2>",
         unsafe_allow_html=True
     )
 
@@ -123,7 +123,7 @@ def teacher_tab_take_attendance():
 
     with col1:
         st.markdown(
-            "<p style='color:black; font-weight:bold;'>Select Subject</p>",
+            "<p style='color:var(--ax-ink) !important; font-weight:600;'>Select Subject</p>",
             unsafe_allow_html=True
         )
 
@@ -205,7 +205,7 @@ def teacher_tab_take_attendance():
                             'is_present': bool(is_present)
                         })
 
-                attendance_result_dialog(pd.DataFrame(results), attendance_to_log)
+                    attendance_result_dialog(pd.DataFrame(results), attendance_to_log)
 
     with c3:
         if st.button('Use Voice Attendance', type='primary', width='stretch', icon=':material/mic:'):
@@ -226,7 +226,7 @@ def teacher_tab_manage_subjects():
     col1, col2 = st.columns(2)
     with col1:
         st.markdown(
-            "<h2 style='color:black;'>Manage Subjects</h2>",
+            "<h2>Manage Subjects</h2>",
             unsafe_allow_html=True
         )
 
@@ -240,28 +240,29 @@ def teacher_tab_manage_subjects():
     if subjects:
         for sub in subjects:
             stats = [
-                ("🫂", "Students", sub['total_students']),
-                ("🕰️", "Classes", sub['total_classes']),
+                ("👥", "Students", sub['total_students']),
+                ("🗓️", "Classes", sub['total_classes']),
             ]
-        def share_btn():
-            if st.button(f"Share Code: {sub['name']}", key=f"share_{sub['subject_code']}", icon=":material/share:"):
-                share_subject_dialog(sub['name'], sub['subject_code'])
-            st.space()
 
-        subject_card(
-            name = sub['name'],
-            code = sub['subject_code'],
-            section = sub['section'],
-            stats=stats,
-            footer_callback=share_btn
-        )
+            def share_btn(sub=sub):
+                if st.button(f"Share Code: {sub['name']}", key=f"share_{sub['subject_code']}", icon=":material/share:"):
+                    share_subject_dialog(sub['name'], sub['subject_code'])
+                st.space()
+
+            subject_card(
+                name = sub['name'],
+                code = sub['subject_code'],
+                section = sub['section'],
+                stats=stats,
+                footer_callback=share_btn
+            )
     else:
-        st.info("NO SUBJECTS FOUND. CREATE ONE ABOVE")
+        st.info("No subjects found yet. Create one above to get started!")
 
 
 def teacher_tab_attendance_records():
     st.markdown(
-        "<h2 style='color:black;'>Attendance Records</h2>",
+        "<h2>Attendance Records</h2>",
         unsafe_allow_html=True
     )
     teacher_id = st.session_state.teacher_data['teacher_id']

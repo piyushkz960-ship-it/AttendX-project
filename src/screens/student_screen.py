@@ -22,7 +22,7 @@ def student_dashboard():
         header_dashboard()
     with c2:
         st.markdown(
-            f"<h3 style='color:black;'>Welcome, {student_data['name']}</h3>",
+            f"<h3>Welcome, {student_data['name']}</h3>",
             unsafe_allow_html=True
     )
     if st.button(
@@ -41,7 +41,7 @@ def student_dashboard():
     c1, c2 =st.columns(2)
     with c1:
         st.markdown(
-            "<h2 style='color:black;'>Your Enrolled Subjects</h2>",
+            "<h2>Your Enrolled Subjects</h2>",
             unsafe_allow_html=True
         )
     with c2:

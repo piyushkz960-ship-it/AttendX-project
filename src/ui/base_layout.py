@@ -1,26 +1,49 @@
 import streamlit as st
 
 
-
 def style_background_home():
 
     st.markdown("""
         <style>
 
                 .stApp {
-                    background: #5865F2 !important;
+                    background: radial-gradient(120% 140% at 15% 0%, #4F46E5 0%, #4338CA 45%, #211E52 100%) !important;
                 }
 
                 .stApp div[data-testid="stColumn"]{
-                    background-color:#E0E3FF !important;
-                    padding:2.5rem !important;
-                    border-radius: 5rem !important;
-                    }
-        </style>  
+                    background-color: var(--ax-surface) !important;
+                    padding: 2.75rem 2.25rem !important;
+                    border-radius: var(--ax-radius-lg) !important;
+                    box-shadow: var(--ax-shadow-lg) !important;
+                    text-align: center !important;
+                    transition: transform .25s ease, box-shadow .25s ease !important;
+                }
+
+                .stApp div[data-testid="stColumn"]:hover {
+                    transform: translateY(-6px) !important;
+                    box-shadow: var(--ax-shadow-xl) !important;
+                }
+
+                .stApp div[data-testid="stColumn"] .stImage {
+                    display: flex !important;
+                    justify-content: center !important;
+                    margin: .25rem 0 1.1rem 0 !important;
+                }
+
+                .stApp div[data-testid="stColumn"] .stButton {
+                    display: flex !important;
+                    justify-content: center !important;
+                    margin-top: .5rem !important;
+                }
+
+                .stApp div[data-testid="stColumn"] h2 {
+                    color: var(--ax-ink) !important;
+                }
+        </style>
 
                 """
             ,unsafe_allow_html=True)
-    
+
 
 def style_background_dashboard():
 
@@ -28,109 +51,221 @@ def style_background_dashboard():
         <style>
 
                 .stApp {
-                    background: #E0E3FF !important;
+                    background: var(--ax-bg) !important;
                 }
 
-        </style>  
+        </style>
 
                 """
             ,unsafe_allow_html=True)
-    
 
-    
+
+
 
 def style_base_layout():
-# asdasd
+
     st.markdown("""
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-                
+        :root {
+            --ax-primary: #4F46E5;
+            --ax-primary-dark: #4338CA;
+            --ax-primary-light: #EEF2FF;
+            --ax-secondary: #0D9488;
+            --ax-secondary-dark: #0F766E;
+            --ax-ink: #1E293B;
+            --ax-muted: #64748B;
+            --ax-bg: #F5F6FB;
+            --ax-surface: #FFFFFF;
+            --ax-border: #E2E8F0;
+            --ax-radius-sm: 10px;
+            --ax-radius-md: 14px;
+            --ax-radius-lg: 26px;
+            --ax-shadow: 0 2px 10px rgba(30, 41, 59, 0.06);
+            --ax-shadow-lg: 0 10px 30px rgba(30, 41, 59, 0.10);
+            --ax-shadow-xl: 0 18px 40px rgba(30, 41, 59, 0.16);
+        }
+
          /* Hide Top Bar of streamlit */
-                
+
             #MainMenu, footer, header {
                 visibility: hidden;
             }
-                
+
             .block-container {
-                padding-top:1.5rem !important;    
+                padding-top: 1.75rem !important;
+                max-width: 1100px !important;
             }
 
             h1 {
                 font-family: 'Poppins', sans-serif !important;
-                font-size: 3.5rem !important;
+                font-size: 3.2rem !important;
                 font-weight: 700 !important;
-                line-height:1.1 !important;
-                margin-bottom:0rem !important;
-                color: #111827 !important;
+                line-height: 1.15 !important;
+                margin-bottom: 0.4rem !important;
+                color: var(--ax-ink) !important;
             }
-                
+
 
             h2 {
                 font-family: 'Poppins', sans-serif !important;
-                font-size: 2rem !important;
+                font-size: 1.7rem !important;
                 font-weight: 700 !important;
-                line-height:0.9 !important;
-                margin-bottom:0rem !important;
-                color: black !important;
+                line-height: 1.25 !important;
+                margin-bottom: 0.3rem !important;
+                color: var(--ax-ink) !important;
             }
-                
-            h3, h4, p, label {
-                font-family: 'Outfit', sans-serif !important;  
-                color: black !important;
+
+            h3, h4, p, label, span, div {
+                font-family: 'Outfit', sans-serif !important;
+            }
+
+            h3, h4 {
+                color: var(--ax-ink) !important;
+            }
+
+            p, label {
+                color: var(--ax-muted) !important;
             }
 
             input, textarea {
                 font-family: 'Outfit', sans-serif !important;
             }
-                
+
+            /* ---------- Buttons ---------- */
 
             .stButton > button{
-                border-radius: 1.5rem !important;
-                background-color: #5865F2 !important;
+                border-radius: var(--ax-radius-sm) !important;
+                background-color: var(--ax-primary) !important;
                 color: white !important;
-                padding: 10px 20px !important;
+                font-weight: 600 !important;
+                padding: 10px 22px !important;
                 border: none !important;
-                transition: transform 0.25s ease-in-out !important;
+                box-shadow: var(--ax-shadow) !important;
+                transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease !important;
+                }
+
+            .stButton > button:hover{
+                transform: translateY(-2px) !important;
+                background-color: var(--ax-primary-dark) !important;
+                box-shadow: var(--ax-shadow-lg) !important;
                 }
 
             .stButton > button[kind="secondary"]{
-                border-radius: 1.5rem !important;
-                background-color: #EB459E !important;
+                background-color: var(--ax-secondary) !important;
                 color: white !important;
-                padding: 10px 20px !important;
-                border: none !important;
-                transition: transform 0.25s ease-in-out !important;
+                }
+
+            .stButton > button[kind="secondary"]:hover{
+                background-color: var(--ax-secondary-dark) !important;
                 }
 
             .stButton > button[kind="tertiary"]{
-                border-radius: 1.5rem !important;
-                background-color: black !important;
-                color: white !important;
-                padding: 10px 20px !important;
-                border: none !important;
-                transition: transform 0.25s ease-in-out !important;
+                background-color: var(--ax-surface) !important;
+                color: var(--ax-ink) !important;
+                border: 1.5px solid var(--ax-border) !important;
+                box-shadow: none !important;
                 }
 
-            button:hover{
-                transform :scale(1.05)}
+            .stButton > button[kind="tertiary"]:hover{
+                border-color: var(--ax-primary) !important;
+                color: var(--ax-primary) !important;
+                background-color: var(--ax-primary-light) !important;
+                }
 
+            .stButton > button:disabled{
+                opacity: 0.45 !important;
+                transform: none !important;
+                box-shadow: none !important;
+                }
+
+            /* ---------- Inputs ---------- */
+
+            .stTextInput input, .stTextArea textarea, .stSelectbox div[data-baseweb="select"] > div {
+                border-radius: var(--ax-radius-sm) !important;
+                border: 1.5px solid var(--ax-border) !important;
+                background-color: var(--ax-surface) !important;
+            }
+
+            .stTextInput input:focus, .stTextArea textarea:focus {
+                border-color: var(--ax-primary) !important;
+                box-shadow: 0 0 0 3px var(--ax-primary-light) !important;
+            }
+
+            [data-testid="stCameraInput"], [data-testid="stFileUploader"], [data-testid="stAudioInput"] {
+                border-radius: var(--ax-radius-md) !important;
+                overflow: hidden !important;
+            }
+
+            [data-testid="stFileUploaderDropzone"] {
+                border-radius: var(--ax-radius-md) !important;
+                border: 1.5px dashed var(--ax-border) !important;
+                background-color: var(--ax-primary-light) !important;
+            }
+
+            /* ---------- Misc containers ---------- */
+
+            [data-testid="stDataFrame"] {
+                border-radius: var(--ax-radius-md) !important;
+                overflow: hidden !important;
+                border: 1px solid var(--ax-border) !important;
+            }
+
+            hr, [data-testid="stDivider"] {
+                border-color: var(--ax-border) !important;
+                margin: 1.25rem 0 !important;
+            }
+
+            [data-testid="stAlert"] {
+                border-radius: var(--ax-radius-sm) !important;
+            }
+
+            [data-testid="stImage"] img {
+                border-radius: var(--ax-radius-sm) !important;
+            }
+
+            /* ---------- Dialogs / Modals ---------- */
+
+            [data-testid="stDialog"] > div {
+                border-radius: var(--ax-radius-lg) !important;
+                box-shadow: var(--ax-shadow-xl) !important;
+            }
+
+            [data-testid="stDialog"] h1,
             [data-testid="stDialog"] h2 {
-                color: white !important;
+                color: var(--ax-primary) !important;
                 font-family: 'Poppins', sans-serif !important;
             }
 
+            [data-testid="stDialog"] h3,
+            [data-testid="stDialog"] h4,
             [data-testid="stDialog"] p {
-                color: white !important;
+                color: var(--ax-ink) !important;
                 font-family: 'Outfit', sans-serif !important;
             }
 
             [data-testid="stDialog"] label {
-                color: white !important;
+                color: var(--ax-muted) !important;
                 font-family: 'Outfit', sans-serif !important;
             }
-        </style>  
+
+            /* ---------- Brand header / hero ---------- */
+
+            .ax-hero h1 {
+                color: white !important;
+            }
+
+            .ax-hero p {
+                color: #DCDBFF !important;
+            }
+
+            .ax-brand h2 {
+                color: var(--ax-primary) !important;
+                margin-bottom: 0 !important;
+            }
+        </style>
 
                 """
             ,unsafe_allow_html=True)

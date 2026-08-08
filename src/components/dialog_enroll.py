@@ -10,7 +10,7 @@ def enroll_dialog():
     
     st.markdown(
         """
-        <p style="color:white; font-size:16px;">
+        <p style="color:var(--ax-ink); font-size:16px;">
             Enter the subject code provided by your teacher to enroll
         </p>
         """,
