@@ -20,7 +20,7 @@ def header_dashboard():
     logo_url = "https://i.ibb.co/YTYGn5qV/logo.png"
 
     st.markdown(f"""
-        <div class="ax-brand" style="display:flex; align-items:center; justify-content:center; gap:12px;">
+        <div class="ax-brand" style="display:flex; align-items:center; justify-content:flex-start; gap:12px;">
             <img src='{logo_url}' style='height:56px;' />
             <h2 style='text-align:left;'>AttendX</h2>
         </div>
