@@ -151,6 +151,8 @@ def teacher_tab_take_attendance():
 
     selected_subject_id = selected_subject['subject_id']
 
+    st.caption(f"Debug: selected subject_id = {selected_subject_id!r} ({type(selected_subject_id).__name__})")
+
     st.divider()
 
     if st.session_state.attendance_images:
@@ -194,6 +196,8 @@ def teacher_tab_take_attendance():
 
                 enrolled_res = supabase.table('subject_students').select("*, students(*)").eq('subject_id',selected_subject_id ).execute()
                 enrolled_students = enrolled_res.data
+
+                st.caption(f"Debug: query for subject_id={selected_subject_id!r} returned {len(enrolled_students or [])} row(s)")
 
                 if not enrolled_students:
                     st.warning('No students enrolled in this course')
