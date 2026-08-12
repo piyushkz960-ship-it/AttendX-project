@@ -1,0 +1,15 @@
+name: Keep Streamlit App Awake
+
+on:
+  schedule:
+    - cron: "*/12 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping AttendX Streamlit app
+        run: |
+          curl -sS -o /dev/null -w "HTTP %{http_code}\n" "https://attendx2-main.streamlit.app/_stcore/health" || true
+          curl -sS -o /dev/null -w "HTTP %{http_code}\n" "https://attendx2-main.streamlit.app/" || true
