@@ -130,8 +130,6 @@ def teacher_tab_take_attendance():
             st.rerun()
         return
     
-    subject_options = {f"{s['name']} - {s['subject_code']}": s['subject_id'] for s in subjects}
-
     col1, col2 = st.columns([3,1], vertical_alignment='bottom')
 
     with col1:
@@ -140,9 +138,10 @@ def teacher_tab_take_attendance():
             unsafe_allow_html=True
         )
 
-    selected_subject_label = st.selectbox(
+    selected_subject = st.selectbox(
         "",
-        options=list(subject_options.keys()),
+        options=subjects,
+        format_func=lambda s: f"{s['name']} - {s['subject_code']}",
         label_visibility="collapsed"
     )
 
@@ -150,7 +149,7 @@ def teacher_tab_take_attendance():
         if st.button('Add Photos', type='primary', icon=':material/photo_prints:', width='stretch'):
             add_photos_dialog()
 
-    selected_subject_id = subject_options[selected_subject_label]
+    selected_subject_id = selected_subject['subject_id']
 
     st.divider()
 
@@ -207,6 +206,8 @@ def teacher_tab_take_attendance():
 
                     for node in enrolled_students:
                         student = node['students']
+                        if not student:
+                            continue
                         sources = all_detected_ids.get(int(student['student_id']), [])
                         is_present= len(sources) > 0
 
