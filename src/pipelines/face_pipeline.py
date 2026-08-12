@@ -87,6 +87,8 @@ def predict_attendance(class_image_np):
         best_match_index = int(np.argmin(distances))
         best_match_score = distances[best_match_index]
 
+        st.caption(f"Debug: closest student_id={y_train[best_match_index]} distance={best_match_score:.4f} (threshold={resemblance_threshold})")
+
         if best_match_score <= resemblance_threshold:
             predicted_id = int(y_train[best_match_index])
             detected_student[predicted_id] = True
